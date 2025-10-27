@@ -1,611 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jhansi | Web Developer</title>
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    :root {
-      --bg: #0f172a;
-      --text: #e2e8f0;
-      --accent: #38bdf8;
-      --btn-hover: linear-gradient(to right, #3b82f6, #06b6d4);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: rgba(15, 23, 42, 0.8);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 6px #0005;
-    }
-
-    .logo {
-      font-size: 2rem;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      color: #7dd3fc;
-    }
-
-    .logo i {
-      color: #22d3ee;
-      margin-right: 12px;
-      font-size: 1.5rem;
-    }
-
-    .name-highlight {
-      color: #f472b6;
-      margin-right: 5px;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #cbd5e1;
-      font-weight: 500;
-      transition: 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    section {
-      padding: 30px 0;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: 3rem;
-      color: var(--accent);
-    }
-
-    .hero-text h2 {
-      font-weight: 400;
-      font-size: 1.4rem;
-      color: #cbd5e1;
-    }
-
-    .hero-text p {
-      margin: 20px 0;
-      font-size: 1.05rem;
-      color: #94a3b8;
-    }
-
-    .btns a {
-      display: inline-block;
-      margin: 10px 15px 0 0;
-      padding: 10px 20px;
-      border: 1px solid var(--accent);
-      color: var(--text);
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.4s ease;
-    }
-
-    .btns a:hover {
-      background: var(--btn-hover);
-      color: #0f172a;
-    }
-
-    .hero-img {
-      text-align: center;
-    }
-
-    .hero-img img {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      border: 6px solid var(--accent);
-      object-fit: cover;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
-      transition: transform 0.4s ease;
-    }
-
-    .hero-img img:hover {
-      transform: scale(1.05);
-    }
-
-    .home-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4rem 2rem;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    /* .home-text {
-      flex: 1;
-      min-width: 300px;
-    } */
-    .home-text {
-  opacity: 0;
-  transform: translateX(100px);
-  animation: slideInRight 1s ease-out forwards;
-  animation-delay: 0.5s;
-}
-
-@keyframes slideInRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-
-    .home-text h1 {
-      font-size: 3rem;
-      color: #00bfff;
-    }
-
-    .home-text h2 {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
-      color: #ccc;
-    }
-
-    .home-text p {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #aaa;
-      max-width: 600px;
-    }
-
-    .home-buttons {
-      margin-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.2rem;
-      background-color: #111;
-      color: white;
-      border: 2px solid #00bfff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #00bfff;
-      color: #000;
-    }
-
-    .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: linear-gradient(160deg, #f472b6, #00bfff);
-  color: #0a192f;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: all 0.4s ease-in-out;
-  box-shadow: 0 4px 10px rgba(100, 255, 218, 0.3);
-}
-
-.btn:hover {
-  background: linear-gradient(160deg,#00bfff, #f472b6, );
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(100, 216, 255, 0.5);
-  color: #0a192f;
-}
-
-.home-image {
-  opacity: 0;
-  transform: translateX(-100px);
-  animation: slideInLeft 1s ease-out forwards;
-  animation-delay: 0.5s;
-}
-
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-
-    .home-image img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid #00bfff;
-      box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--accent);
-      text-align: center;
-    }
-
-    .glow-skill-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  justify-content: center;
-}
-
-.glow-card {
-  background: #111;
-  color: #fff;
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-  width: 250px;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: slideUp 0.8s ease-out forwards;
-}
-
-.glow-card:nth-child(1) { animation-delay: 0.2s; }
-.glow-card:nth-child(2) { animation-delay: 0.4s; }
-.glow-card:nth-child(3) { animation-delay: 0.6s; }
-.glow-card:nth-child(4) { animation-delay: 0.8s; }
-.glow-card:nth-child(5) { animation-delay: 1s; }
-
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-    .glow-card:hover {
-      border: 2px solid #38bdf8;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
-      transform: translateY(-5px);
-    }
-
-    .glow-card i {
-      font-size: 2rem;
-      color: #38bdf8;
-      margin-bottom: 10px;
-    }
-
-    .glow-card h3 {
-      font-size: 1.2rem;
-      color: #7dd3fc;
-      margin-bottom: 10px;
-    }
-
-    .glow-card p {
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      line-height: 1.5;
-    }
-
-   
-
-  .container {
-    max-width: 1100px;
-    margin: auto;
-  }
-
-  .section-title {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 40px;
-    font-weight: 700;
-  }
-
-  .tech-stack {
-    font-size: 14px;
-    color: #444;
-    line-height: 1.6;
-  }
-
-    .education .edu-item {
-      margin-bottom: 20px;
-    }
-
-    .projects-section {
-    padding: 80px 20px;
-    text-align: center;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: auto;
-  }
-
-  .section-title {
-    font-size: 40px;
-    color: #00bfff;
-    margin-bottom: 50px;
-    font-weight: 700;
-  }
-
-  .project-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-  }
-
-  .project-card {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    padding: 30px;
-    width: 550px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-    color: #333;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.3);
-  }
-
-  .project-card h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: #4f46e5;
-    text-decoration: none;
-  }
-
-  .project-card p {
-    font-size: 15px;
-    color: white;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
-    .project-card {
-      width: 90%;
-    }
-  }
-    .education-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .edu-card {
-      background: linear-gradient(to bottom right, #1e293b, #0f172a);
-      padding: 25px;
-      border-radius: 16px;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-      text-align: center;
-      color: #e2e8f0;
-      opacity: 0;
-      transform: translateY(60px) rotateX(10deg);
-      animation: slideRotateUp 0.8s ease-out forwards;
-      animation-delay: calc(var(--i) * 0.3s);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    @keyframes slideRotateUp {
-      to {
-        opacity: 1;
-        transform: translateY(0) rotateX(0);
-      }
-    }
-
-    .edu-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 16px 32px rgba(56, 189, 248, 0.4);
-    }
-
-    .edu-card h3 {
-      color: #38bdf8;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .edu-card .college-name {
-      font-weight: bold;
-      color: #0ea5e9;
-      margin: 8px 0 4px;
-      font-size: 1.05rem;
-    }
-
-    .edu-card .branch-name {
-      font-style: italic;
-      color: #cbd5e1;
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-    }
-
-    .edu-card .cgpa {
-      font-weight: bold;
-      color: #facc15;
-      font-size: 1.15rem;
-      margin-top: 10px;
-    }
-
-    .edu-card i {
-      margin-right: 8px;
-      color: #94a3b8;
-    }
-
-    .internship-section {
-  padding: 60px 0;
-  text-align: center;
-}
-
-.internship-section .section-title {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #00bfff;
-}
-
-.internship-card {
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.internship-card h3 {
-  font-size: 1.5rem;
-  color: #1e40af;
-  margin-bottom: 10px;
-}
-
-.internship-card .role {
-  font-weight: normal;
-  font-size: 1rem;
-  color: white;
-}
-
-.internship-card ul {
-  padding-left: 20px;
-  margin-top: 10px;
-  list-style: disc;
-}
-
-.internship-card ul li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  color: white;
-}
-
-
-    #contact {
-      background: #1e293b;
-      padding: 60px 0;
-      text-align: center;
-      color: #f8fafc;
-    }
-
-    .contact-intro {
-      color: #cbd5e1;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .contact-item {
-      background: #334155;
-      padding: 15px 20px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      font-size: 1.05rem;
-      color: white;
-      transition: background 0.3s ease;
-    }
-
-    .contact-item i {
-      margin-right: 10px;
-      color: #facc15;
-    }
-
-    .contact-item a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .contact-item:hover {
-      background: #475569;
-    }
-
-    @media(max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-img {
-        margin-bottom: 30px;
-      }
-    }
-
-    
-  </style>
 </head>
 
 <body>
-
+  <!-- HEADER -->
   <header>
     <div class="logo">
       <i class="fa-solid fa-address-card"></i>
       <span class="name-highlight">Jhansi Lakshmi</span> Gondi
     </div>
     <nav>
-      <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="#home" class="active"><i class="fa-solid fa-house"></i> Home</a>
       <a href="#skills"><i class="fa-solid fa-wrench"></i> Skills</a>
+      <a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
       <a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
       <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
       <a href="#contact"><i class="fa-solid fa-phone"></i> Contact</a>
     </nav>
   </header>
 
-
-
+  <!-- HOME -->
   <section id="home">
     <div class="container home-section">
       <div class="home-text">
         <h1>Hi, I'm <span class="name-highlight">Jhansi Lakshmi</span></h1>
-        <h2>MERN Stack Developer</h2>
+        <h2>Junior Web Developer</h2>
         <p>
-          I'm passionate about building full-stack web applications using <strong>React</strong>,
-          <strong>Node.js</strong>, <strong>Express</strong>, and <strong>MySQL</strong>. I focus on clean UI, responsive
-          design, and efficient backend services.
+          I’m a passionate Front-End Developer with 1 year of experience in building responsive and interactive web applications using <b>React.js</b>, <b>JavaScript</b>, <b>HTML</b>, and <b>CSS</b>. 
+          I focus on delivering clean, optimized, and user-friendly interfaces that enhance digital experiences.
         </p>
         <div class="home-buttons">
-          <a href="Gondi_Jhansi_Resume.pdf" class="btn" target="_blank">
+          <a href="Jhansi_Lakshmi_Gondi-ReactJS_Resume-Exp_1yr.pdf" class="btn" target="_blank">
             <i class="fa-solid fa-file"></i> View Resume
           </a>
           <a href="https://www.linkedin.com/in/jhansi-lakshmi-gondi/" class="btn" target="_blank">
@@ -622,142 +53,124 @@
     </div>
   </section>
 
-
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
-      <h2 class="section-title">My Technical Skills</h2>
+      <h2 class="section-title">Technical Skills</h2>
       <div class="glow-skill-cards">
-        <div class="glow-card">
-          <i class="fa-solid fa-laptop-code"></i>
-          <h3>Frontend</h3>
-          <p>HTML5, CSS3, Bootstrap, Javascript, ReactJs</p>
-        </div>
-        <div class="glow-card">
-          <i class="fa-solid fa-server"></i>
-          <h3>Backend</h3>
-          <p>Node.js, Express.js</p>
-        </div>
-        <div class="glow-card">
-          <i class="fa-solid fa-database"></i>
-          <h3>Database</h3>
-          <p>MySQL</p>
-        </div>
-        <div class="glow-card">
-          <i class="fa-solid fa-code"></i>
-          <h3>Languages</h3>
-          <p>Java, Python</p>
-        </div>
-        <div class="glow-card">
-          <i class="fa-solid fa-tools"></i>
-          <h3>Tools</h3>
-          <p>Git, GitHub, VS Code</p>
-        </div>
+        <div class="glow-card"><i class="fa-solid fa-laptop-code"></i><h3>Frontend</h3><p>HTML5, CSS3, Bootstrap, Tailwind CSS, JavaScript, React.js</p></div>
+        <div class="glow-card"><i class="fa-solid fa-server"></i><h3>Backend</h3><p>Node.js, Express.js, REST APIs</p></div>
+        <div class="glow-card"><i class="fa-solid fa-database"></i><h3>Database</h3><p>MySQL</p></div>
+        <div class="glow-card"><i class="fa-solid fa-code"></i><h3>Languages</h3><p>Java, Python</p></div>
+        <div class="glow-card"><i class="fa-solid fa-toolbox"></i><h3>Tools</h3><p>Git, GitHub, VS Code, Postman</p></div>
       </div>
     </div>
   </section>
 
-  <section class="projects-section" id="projects">
+  <!-- EXPERIENCE -->
+  <section id="experience">
     <div class="container">
-      <h2 class="section-title">✨ My Projects</h2>
-  
-      <div class="project-cards">
-  
-        <!-- SafeCart Replica -->
-        <a href="https://safecart-frontend.vercel.app/" target="_blank" class="project-card">
-          <h3>🛒SafeCart Replica</h3>
-          <p>
-            A fully functional ecommerce website replicating SafeCart with cart system, product listing, and backend support.
-          </p>
-          <p><strong>Tech Stack:</strong><br>
-            React.js, Bootstrap, HTML, CSS, Javascript, Node.js, MySQL
-          </p>
-        </a>
-  
-        <!-- Company Website -->
-        <a href="https://jhantech-innovations.vercel.app/" target="_blank" class="project-card">
-          <h3>🏢JhanTech Innovations</h3>
-          <p>
-            A clean and modern business website featuring services, contact form, and responsive design.
-          </p>
-          <p><strong>Tech Stack:</strong><br>
-            HTML5, CSS3, JavaScript, React.js, Bootstrap
-          </p>
-        </a>
-  
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Digitali360 — <span>Junior Web Developer</span></h3>
+          <p class="duration">May 2025 – Present | Hyderabad</p>
+          <p><b>Project:</b> Proser – Real Estate Platform</p>
+          <ul>
+            <li>Developed Buy & Rent modules with dynamic filters and listings.</li>
+            <li>Built responsive UI with React.js and integrated Laravel backend.</li>
+            <li>Enabled real-time updates and optimized performance.</li>
+          </ul>
+          <p><b>Project:</b> Alanati Pindivantalu – Traditional Sweets Website</p>
+          <ul>
+            <li>Designed a cultural food website using HTML, Tailwind CSS, and Alpine.js.</li>
+            <li>Created interactive menus and clean layout reflecting brand aesthetics.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Neosys Tech Solutions — <span>Associate Software Trainee</span></h3>
+          <p class="duration">June 2024 – Oct 2024 | Hyderabad</p>
+          <p><b>Project:</b> JhanTech Innovations – Company Website</p>
+          <ul>
+            <li>Developed a dynamic company website using React, HTML, CSS, and JS.</li>
+            <li>Built reusable components and smooth animations for navigation.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Synergy Universal — <span>Software Developer Intern</span></h3>
+          <p class="duration">Feb 2024 – June 2024 | Hyderabad</p>
+          <p><b>Project:</b> SafeCart – E-Commerce Replica</p>
+          <ul>
+            <li>Developed responsive ecommerce replica with cart & authentication.</li>
+            <li>Integrated Node.js backend and MySQL for smooth data handling.</li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </section>
-  
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="project-cards">
+        <div class="project-card">
+          <h3>🏘️ Proser – Real Estate Platform</h3>
+          <p>Full-featured real estate website with categorized listings, search filters, and secure data handling using Laravel backend.</p>
+          <p><b>Tech Stack:</b> React.js, MySQL, HTML5, CSS3, REST APIs</p>
+        </div>
+
+        <div class="project-card">
+          <h3>🍬 Alanati Pindivantalu</h3>
+          <p>Cultural food website showcasing traditional sweets with Tailwind CSS and interactive components using Alpine.js.</p>
+          <p><b>Tech Stack:</b> HTML, Tailwind CSS, Alpine.js</p>
+        </div>
+
+        <div class="project-card">
+          <h3>🏢 JhanTech Innovations</h3>
+          <p>Company portfolio site with responsive UI, navigation, and reusable React components.</p>
+          <p><b>Tech Stack:</b> React.js, HTML, CSS, JavaScript</p>
+        </div>
+
+        <div class="project-card">
+          <h3>🛍️ SafeCart Replica</h3>
+          <p>E-commerce web app with cart management, authentication, and responsive design.</p>
+          <p><b>Tech Stack:</b> React.js, Node.js, Express.js, MySQL, Bootstrap</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
   <section id="education">
     <div class="container">
       <h2 class="section-title">Education</h2>
       <div class="education-cards">
-        <div class="edu-card" style="--i: 0">
-          <h3>B.Tech</h3>
-          <p class="college-name"><i class="fa-solid fa-school"></i> Aditya Engineering College</p>
-          <p class="branch-name">Electronics and Communication Engineering</p>
-          <p class="cgpa">CGPA: 9.08 </p>
-        </div>
-        <div class="edu-card" style="--i: 1">
-          <h3>Intermediate</h3>
-          <p class="college-name"><i class="fa-solid fa-school-flag"></i> Sri Vagdevi Junior College</p>
-          <p class="branch-name"> Mathematics, Physics, Chemistry</p>
-          <p class="cgpa">CGPA: 9.88</p>
-        </div>
-        <div class="edu-card" style="--i: 2">
-          <h3>SSC</h3>
-          <p class="college-name"><i class="fa-solid fa-building-columns"></i> Sri Siddhardha EM High School</p>
-          <p class="cgpa">CGPA: 10</p>
-        </div>
+        <div class="edu-card"><h3>B.Tech – ECE</h3><p>Aditya Engineering College</p><p>CGPA: 9.08</p></div>
+        <div class="edu-card"><h3>Intermediate – MPC</h3><p>Sri Vagdevi Junior College</p><p>CGPA: 9.88</p></div>
+        <div class="edu-card"><h3>SSC</h3><p>Sri Siddardha EM High School</p><p>CGPA: 10</p></div>
       </div>
     </div>
   </section>
 
-  <section class="internship-section">
-    <div class="container">
-      <h2 class="section-title">💼 Internship Experience</h2>
-      <div class="internship-card">
-        <h3>Synergy Universal <span class="role">— Software Developer Intern</span></h3>
-        <p><strong>Duration:</strong> Feb 15, 2024 – June 7, 2024</p>
-        <p><strong>Tech Stack:</strong> HTML, CSS, Bootstrap, JavaScript, ReactJs, NodeJs, ExpressJs, MySQL</p>
-        <ul>
-         <li>Revamped and optimized the UI of a responsive web application using HTML5, CSS3, Bootstrap, and React.js to enhance user experience and performance.</li>
-         <li>Collaborated with the design team to implement modern UI components and ensure cross-browser compatibility and mobile responsiveness.</li>
-         <li>Designed reusable and modular React components to improve code maintainability and scalability.</li>
-         <li>Developed and maintained RESTful APIs using Node.js and Express.js for handling data transactions and backend logic.</li>
-         <li>Integrated MySQL database with backend services for efficient data retrieval, storage, and manipulation.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Contact Me</h2>
-      <p class="contact-intro">
-        I'm always open to new opportunities, collaborations, and discussions.<br />
-        Feel free to reach out via any of the following methods.
-      </p>
+      <p class="contact-intro">Let’s collaborate or discuss opportunities!</p>
       <div class="contact-details">
-        <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:g.jhansi1081@gmail.com">g.jhansi1081@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
-          <a href="tel:+919642882975">+91-9642882975</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-brands fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/jhansi-lakshmi-gondi/" target="_blank">
-            jhansi-lakshmi-gondi
-          </a>
-        </div>
+        <div class="contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:g.jhansi1081@gmail.com">g.jhansi1081@gmail.com</a></div>
+        <div class="contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+919642882975">+91-9642882975</a></div>
+        <div class="contact-item"><i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/jhansi-lakshmi-gondi/" target="_blank">LinkedIn Profile</a></div>
+        <div class="contact-item"><i class="fa-brands fa-github"></i><a href="https://github.com/JhansiGondi" target="_blank">GitHub Profile</a></div>
       </div>
     </div>
   </section>
 
+  <script src="script.js"></script>
 </body>
-
 </html>
